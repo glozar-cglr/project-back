@@ -10,12 +10,13 @@ const {clearRes} = require('../utils/auth')
 /* POST Singup --> Cómo hacer una ruta de manera express*/
 router.post('/signup', (req, res, next) =>{
   //Trabajaré todo mi codigo por acá :) 
-  const {email,password,confirmPassword} = req.body;
+  const {name, email,password,confirmPassword} = req.body;
 
   if(password !== confirmPassword) return res.status(403).json({msg:"The writted passwords do not match"})
 
   bcrypt.hash(password,10).then((hashedPassword) => {
     const user = {
+      name,
       email,
       password:hashedPassword
     };
