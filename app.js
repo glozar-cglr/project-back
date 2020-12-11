@@ -28,7 +28,7 @@ const app = express();
 //utilizo cors para darle permiso a otras apps
 app.use(
     cors({
-        origin:["http://localhost:3001"],
+        origin:["http://localhost:3001", "https://project-iron-back.herokuapp.com/"],
         credentials:true,
         
     })
